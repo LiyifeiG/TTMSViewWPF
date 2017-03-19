@@ -1,0 +1,363 @@
+﻿<Page x:Class="TTMSViewWPF.View.Pages.UserManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:TTMSViewWPF.View.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="UserManagementPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0" Name="UserDataGrid" ColumnWidth="*" IsReadOnly="True" FontSize="15"
+                  CanUserSortColumns="True" SelectionMode="Single"
+                  IsHitTestVisible="True" MouseDoubleClick="UserDataGrid_OnMouseDoubleClick">
+            <DataGrid.Background>
+                <SolidColorBrush />
+            </DataGrid.Background>
+            <DataGrid.RowBackground>
+                <SolidColorBrush Color="White" Opacity="0.6" />
+            </DataGrid.RowBackground>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="FontSize" Value="15" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="BorderThickness" Value="1 , 1 , 0 , 1" />
+                    <Setter Property="BorderBrush" Value="Black" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10 , 50">
+            <StackPanel Margin="0 , 10" Orientation="Horizontal">
+                <Label FontSize="15">编号 : </Label>
+                <TextBox Name="IDTextBox" FontSize="15" VerticalContentAlignment="Center" Width="150" IsReadOnly="True" />
+            </StackPanel>
+            <StackPanel Margin="0 , 10" Orientation="Horizontal">
+                <Label FontSize="15">姓名 : </Label>
+                <TextBox Name="NameTextBox" FontSize="15" VerticalContentAlignment="Center" Width="150"
+                         IsReadOnly="True" />
+            </StackPanel>
+            <StackPanel Margin="0 , 10" Orientation="Horizontal">
+                <Label FontSize="15">密码 :</Label>
+                <TextBox Name="PasswordTextBox" FontSize="15" VerticalContentAlignment="Center" Width="150"
+                         IsReadOnly="True" />
+            </StackPanel>
+            <StackPanel Margin="0 , 10" Orientation="Horizontal">
+                <Label FontSize="15">等级 :</Label>
+                <ComboBox Name="LevelComboBox" Width="150" FontSize="15" IsReadOnly="True" IsEnabled="False">
+                    <ComboBoxItem Content="系统管理员" />
+                    <ComboBoxItem Content="售票经理" />
+                    <ComboBoxItem Content="售票员" />
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="15 , 5">
+                <Button Name="DelButton" Margin="10" Width="80" FontSize="15" Background="AliceBlue"
+                        BorderThickness="0" Content="删除" Click="DelItem_OnClick" />
+                <Button Name="ModButton" Margin="10" Width="80" FontSize="15" Background="AliceBlue"
+                        BorderThickness="0" Content="修改" Click="ModItem_OnClick" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="15 , 5">
+                <Button Name="AddButton" Margin="10" Width="80" FontSize="15" Background="AliceBlue"
+                        BorderThickness="0" Content="增加" Click="AddItem_OnClick" />
+                <Button Name="FluButton" Margin="10" Width="80" FontSize="15" Background="AliceBlue"
+                        BorderThickness="0" Content="刷新" Click="FluItem_OnClick" />
+            </StackPanel>
+            <StackPanel Margin="0 , 10" Orientation="Vertical" Name="AddPanel" Visibility="Hidden">
+                <StackPanel Margin="0 , 10" Orientation="Horizontal">
+                    <Label FontSize="15">编号 :</Label>
+                    <TextBox Name="IDAddTextBox" FontSize="15" VerticalContentAlignment="Center" Width="150" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Margin="0 , 10" Orientation="Horizontal">
+                    <Label FontSize="15">姓名 :</Label>
+                    <TextBox Name="NameAddTextBox" FontSize="15" VerticalContentAlignment="Center" Width="150"
+                         />
+                </StackPanel>
+                <StackPanel Margin="0 , 10" Orientation="Horizontal">
+                    <Label FontSize="15">账号 :</Label>
+                    <TextBox Name="AccountAddTextBox" FontSize="15" VerticalContentAlignment="Center" Width="150"
+                         />
+                </StackPanel>
+                <StackPanel Margin="0 , 10" Orientation="Horizontal">
+                    <Label FontSize="15">密码 :</Label>
+                    <TextBox Name="PasswordAddTextBox" FontSize="15" VerticalContentAlignment="Center" Width="150"
+                         />
+                </StackPanel>
+                <StackPanel Margin="0 , 10" Orientation="Horizontal">
+                    <Label FontSize="15">等级 :</Label>
+                    <ComboBox Name="LevelAddComboBox" Width="150" FontSize="15">
+                        <ComboBoxItem Content="系统管理员" />
+                        <ComboBoxItem Content="售票经理" />
+                        <ComboBoxItem Content="售票员" />
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="0 , 10" Orientation="Horizontal">
+                    <Button Name="AddConButton" Margin="10" Width="80" FontSize="15" Background="AliceBlue"
+                        BorderThickness="0" Content="确认增加" Click="AddConButton_OnClick"></Button>
+                    <Button Name="AddCanButton" Margin="10" Width="80" FontSize="15" Background="AliceBlue"
+                        BorderThickness="0" Content="取消增加" Click="AddCanButton_OnClick"></Button>
+                </StackPanel>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Page>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

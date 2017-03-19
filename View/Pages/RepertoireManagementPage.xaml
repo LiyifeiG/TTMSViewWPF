@@ -1,0 +1,135 @@
+﻿<Page x:Class="TTMSViewWPF.View.Pages.RepertoireManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      d:DesignHeight="700" d:DesignWidth="1100"
+      Title="RepertoireManagementPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Width="900" Margin="10 , 10 , 0 , 10">
+            <Button Name="ToLeftButton" Content="&lt;" FontSize="40" Background="Wheat"
+                    BorderThickness="0" Margin="0 , 20" Click="ToLeftButton_OnClick" />
+            <VirtualizingStackPanel Orientation="Horizontal" Width="800">
+                <ListBox Name="MoviesListView" VerticalContentAlignment="Center"
+                         SelectedIndex="0" SelectionMode="Single"
+                         SelectionChanged="MoviesListView_OnSelectionChanged"
+                         OpacityMask="Wheat"
+                         Background="Wheat"
+                         Width="800">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Width="800"
+                                                    Name="MovieListPanel"
+                                                    Orientation="Horizontal"
+                                                    Loaded="MovieListPanel_OnLoaded">
+                            </VirtualizingStackPanel>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </VirtualizingStackPanel>
+            <Button Name="ToRightButton" Content="&gt;" FontSize="40"
+                    Background="Wheat" BorderThickness="0" Margin="0 , 20" Click="ToRightButton_OnClick" />
+        </StackPanel>
+
+        <Border Grid.Row="1" BorderThickness="2" BorderBrush="Black" CornerRadius="5" Margin="50 ,10"
+                Background="Wheat">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="5*" />
+                </Grid.RowDefinitions>
+                <Border BorderThickness="0 , 0 , 0 , 2" BorderBrush="Black"  Margin="10">
+                    <StackPanel Name="MovieInformation">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="电影名称 : " FontSize="15"></Label>
+                            <Label Name="MovieName" FontSize="15"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="电影导演 : " FontSize="15"></Label>
+                            <Label Name="MovieWriter" FontSize="15"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="电影主演 : " FontSize="15"></Label>
+                            <Label Name="MovieStarring" FontSize="15"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="上映时间 : " FontSize="15"></Label>
+                            <Label Name="MovieReleaseTime" FontSize="15"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="电影时长 : " FontSize="15"></Label>
+                            <Label Name="MoviePlayTime" FontSize="15"></Label>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <Grid Margin="10 , 10" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" BorderThickness="0 , 0 , 1 ,0" BorderBrush="Black">
+                        <StackPanel Name="MovieSchedule">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="日期:" VerticalAlignment="Center" FontSize="15"></Label>
+                                <ComboBox Margin="5" Name="MonthsComboBox" FontSize="15" Width="100"
+                                          HorizontalContentAlignment="Center">
+                                    <ComboBoxItem Content="一月" Name="JanuaryComboBox"></ComboBoxItem>
+                                    <ComboBoxItem Content="二月" Name="FebruaryComboBox"></ComboBoxItem>
+                                    <ComboBoxItem Content="三月" Name="MarchComboBox" IsSelected="True"></ComboBoxItem>
+                                </ComboBox>
+                                <ComboBox Margin="5" Name="DayComboBox" FontSize="15" Width="100"
+                                          HorizontalContentAlignment="Center">
+                                    <ComboBoxItem Content="10日" Name="D10ComboBox"></ComboBoxItem>
+                                    <ComboBoxItem Content="11日" Name="D11ComboBox" IsSelected="True"></ComboBoxItem>
+                                    <ComboBoxItem Content="12日" Name="D12ComboBox"></ComboBoxItem>
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label HorizontalAlignment="Center" FontSize="20" 
+                                       Content="放映情况" Foreground="DeepPink" Margin="5" />
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <Label FontSize="15" Background="White" Content="12:35" Margin="10" />
+                                <Label FontSize="15" Background="White" Content="一号影厅" Margin="10" />
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <Label FontSize="15" Background="White" Content="14:30" Margin="10" />
+                                <Label FontSize="15" Background="White" Content="一号影厅" Margin="10" />
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <Label FontSize="15" Background="White" Content="19:35" Margin="10" />
+                                <Label FontSize="15" Background="White" Content="三号影厅" Margin="10" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <StackPanel Grid.Column="1">
+                        <Label Content="  ·  ·  ·  ·  ·  · 剧情简介  ·  ·  ·  ·  ·  · " FontSize="20" Foreground="DeepPink"></Label>
+                        <TextBlock Name="DetailTextBlock" TextWrapping="Wrap" FontSize="15"></TextBlock>
+                    </StackPanel>
+                    <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1 , 0 , 0 , 0">
+                        <StackPanel>
+                            <Button BorderThickness="0" Background="White" Margin="15" Content="上架剧目" FontSize="15"/>
+                            <Button BorderThickness="0" Background="White" Margin="15" Content="下架剧目" FontSize="15"/>
+                            <Button BorderThickness="0" Background="White" Margin="15" Content="纠正信息" FontSize="15"/>
+                            <Button BorderThickness="0" Background="White" Margin="15" Content="详细管理" FontSize="15"/>
+                            <Button BorderThickness="0" Background="White" Margin="15" Content="查看热度" FontSize="15"/>
+                        </StackPanel>
+                    </Border>
+                    
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
+
+
+

@@ -1,0 +1,55 @@
+﻿<Page x:Class="TTMSViewWPF.View.Pages.AuditoriumManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:TTMSViewWPF.View.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="700" d:DesignWidth="1100"
+      Title="AuditoriumManagementPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="10" VerticalAlignment="Center" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="100 , 0 , 0 , 0">
+                <Label FontSize="15" Content="影厅名称 : " VerticalAlignment="Center"/>
+                <ComboBox Margin="5" Height="30" Width="250" BorderThickness="0" Background="White" Name="AuditoriumComboBox"
+                      FontSize="15" HorizontalContentAlignment="Center"
+                      SelectionChanged="AuditoriumComboBox_OnSelectionChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="180 , 0 , 0 , 0">
+                <Button Width="100" FontSize="15" Name="AuditoriumInformation" Content="查看具体信息" Margin="15 , 0" Background="White" BorderThickness="0" Click="AuditoriumInformation_OnClick"/>
+                <Button Width="100" FontSize="15" Name="AuditoriumAddNew" Content="添加新建影厅" Margin="15 , 0" Background="White" BorderThickness="0"/>
+                <Button Width="100" FontSize="15" Name="AuditoriumDelCur" Content="删除当前影厅" Foreground="Red" Margin="15 , 0" Background="White" BorderThickness="0" Click="AuditoriumDelCur_OnClick"/>
+                <Button Width="100" FontSize="15" Name="AuditoriumModCur" Content="修改影厅信息" Foreground="Red" Margin="15 , 0" Background="White" BorderThickness="0" Click="AuditoriumModCur_OnClick"/>
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Margin="10" BorderThickness="3" CornerRadius="5" BorderBrush="Brown" Background="White">
+                <StackPanel Margin="5">
+                    <StackPanel Margin="30" HorizontalAlignment="Center" Name="SeatPanelTop">
+                        <Button Width="500" Height="30" Margin="10" Background="LightSlateGray" Content="荧屏"
+                                HorizontalContentAlignment="Center" FontSize="20" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Margin="10 , 0 , 0 , 0" Width="20" Height="20" Background="Green"></Button>
+                            <Label Margin="5,0,0,0" Content="可用"></Label>
+                            <Button Margin="10 , 0 , 0 , 0" Width="20" Height="20" Background="Black"></Button>
+                            <Label Margin="5,0,0,0" Content="损坏"></Label>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Margin="5" Name="SeatsPanel"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="1" Margin="10" Background="White" CornerRadius="5" BorderBrush="Chocolate" BorderThickness="2">
+                <StackPanel Name="MapPanel" Margin="3"/>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

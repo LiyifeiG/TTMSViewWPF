@@ -1,0 +1,87 @@
+﻿<Page x:Class="TTMSViewWPF.View.Pages.SellsManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TTMSViewWPF.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1100"
+      Title="SellsManagementPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Margin="10"
+                CornerRadius="5" BorderThickness="2"
+                BorderBrush="DeepPink" Background="FloralWhite">
+            <StackPanel>
+                <Label HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Foreground="DeepPink"
+                       Content="售票场次筛选" FontFamily="楷体" FontWeight="Bold"></Label>
+                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right" Margin="5">
+                    <Label Content="演播厅:" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                    <ComboBox Background="White" Margin="5" Width="130" BorderThickness="0" FontSize="15">
+                        <ComboBoxItem Content="一号演播厅" FontSize="15" IsSelected="True"></ComboBoxItem>
+                        <ComboBoxItem Content="二号演播厅" FontSize="15"></ComboBoxItem>
+                        <ComboBoxItem Content="三号演播厅" FontSize="15"></ComboBoxItem>
+                        <ComboBoxItem Content="四号演播厅" FontSize="15"></ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right" Margin="5">
+                    <Label Content="剧目名:" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                    <ComboBox Background="White" Margin="5" Width="130" BorderThickness="0" FontSize="15">
+                        <ComboBoxItem Content="记忆大师" FontSize="15" IsSelected="True"></ComboBoxItem>
+                        <ComboBoxItem Content="大脑天竺" FontSize="15"></ComboBoxItem>
+                        <ComboBoxItem Content="一只狗的使命" FontSize="15"></ComboBoxItem>
+                        <ComboBoxItem Content="急速追杀" FontSize="15"></ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right" Margin="5">
+                    <Label Content="场次:" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                    <ComboBox Background="White" Margin="5" Width="130" BorderThickness="0" FontSize="15">
+                        <ComboBoxItem Content="13:15场" FontSize="15" IsSelected="True"></ComboBoxItem>
+                        <ComboBoxItem Content="17:35场" FontSize="15"></ComboBoxItem>
+                        <ComboBoxItem Content="22:24场" FontSize="15"></ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="5 , 5 , 5 , 0" Width="120" Height="250" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Image Source="../../Asserts/posters/jyds.jpe" Stretch="Fill"></Image>
+                </StackPanel>
+                <StackPanel>
+                    <Label FontSize="25" FontWeight="Bold" Content="已订购" HorizontalAlignment="Center"></Label>
+                </StackPanel>
+                <StackPanel>
+                    <ListView Name="SelledSeatList" BorderThickness="0" 
+                              Height="150"
+                              FontSize="15" HorizontalAlignment="Center" Foreground="DeepPink"
+                              Width="150" HorizontalContentAlignment="Center">
+                    </ListView>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Name="SellButton" Width="80" Height="30" Margin="10" Background="DarkGoldenrod"  BorderThickness="0" Content="确认售票" FontSize="15" Click="SellButton_OnClick"/>
+                    <Button Name="CancelButton" Width="80" Height="30" Margin="10" Background="DarkGoldenrod" BorderThickness="0" Content="取消售票" FontSize="15" Click="CancelButton_OnClick"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="1" Margin="5 , 10 , 10 , 10"
+                CornerRadius="5" BorderThickness="2"
+                BorderBrush="DeepPink" Background="FloralWhite">
+            <StackPanel Name="SeatPanel" Margin="30" HorizontalAlignment="Center">
+                   <Button Width="500" Height="50" Margin="10" Background="LightSlateGray" Content="荧屏" 
+                            HorizontalContentAlignment="Center" FontSize="30"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Margin="10 , 0 , 0 , 0" Width="20" Height="20" Background="Green"></Button>
+                    <Label Margin="5,0,0,0" Content="可用"></Label>
+                    <Button Margin="10 , 0 , 0 , 0" Width="20" Height="20" Background="Red"></Button>
+                    <Label Margin="5,0,0,0" Content="已被预订"></Label>
+                    <Button Margin="10 , 0 , 0 , 0" Width="20" Height="20" Background="Cyan"></Button>
+                    <Label Margin="5,0,0,0" Content="当前预订"></Label>
+                    <Button Margin="10 , 0 , 0 , 0" Width="20" Height="20" Background="Black"></Button>
+                    <Label Margin="5,0,0,0" Content="损坏"></Label>
+                </StackPanel>
+                <StackPanel Height="50"></StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

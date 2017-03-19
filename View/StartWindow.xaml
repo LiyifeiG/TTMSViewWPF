@@ -1,0 +1,36 @@
+﻿<Window x:Class="TTMSViewWPF.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+        mc:Ignorable="d"
+        Title="登陆" Height="450" Width="725" 
+        MinHeight="450" MinWidth="725"
+        WindowStartupLocation="CenterScreen" Icon="../icon.ico"
+        >
+    <Window.Background>
+        <ImageBrush ImageSource="../Asserts/bk1.jpg" Stretch="Fill"></ImageBrush>
+    </Window.Background>
+    <Viewbox Stretch="Fill">
+        <Grid MinHeight="450" MinWidth="725" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                           Content="用户登录" FontSize="35" FontFamily="幼圆" 
+                           FontStyle="Normal" FontWeight="Bold" Margin="20"/>
+                <StackPanel Grid.Row="1" Orientation="Vertical">
+                    <Frame Name="StartWindowFrame" NavigationUIVisibility="Hidden"></Frame>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Window>
+
